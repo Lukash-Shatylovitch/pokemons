@@ -1,4 +1,4 @@
-import pokemonListItems from 
+import pokemonListItems from "../components/pokemonListItems"
 
 export default function Details (props) {
 
