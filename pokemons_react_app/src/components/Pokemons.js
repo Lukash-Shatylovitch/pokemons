@@ -1,47 +1,43 @@
-import React, {useState, useEffect} from "react"; 
-import  PokemonId from "./PokemonId";
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import PokemonId from "./PokemonId";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function Pokemons(props) {
-const [pokemons, setPokemons] = useState ([]);
+  const [pokemons, setPokemons] = useState([]);
+  const navigate = useNavigate();
+  const getPokemons = () => {
+    axios
+      .get("http://localhost:3000/pokemons")
+      .then((response) => {
+        setPokemons(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-const getPokemons = () => {
-axios.get('http://localhost:3000/pokemons')
-.then((response) => {
-setPokemons(response.data);
-
-}
-).catch((err) => {
-  console.log(err);
-})
-
-}
-
-useEffect(() => {
-getPokemons()
-},[]);
+  useEffect(() => {
+    getPokemons();
+  }, []);
 
   return (
     <>
-  
-     
-        {pokemons.map((item, index) => {
-          console.log(item)
-          
-          return (
-            <h1>{item.name.english}</h1>
-            
+      {pokemons.map((item, index) => {
+        console.log(item);
 
-
-           //  id={item.sys.id}
-            //  key={item.sys.id}
-           //   name={item.fields.name}
-            //  type={item.fields.type}
-            //  base={item.fields.base}
-          
-            
-          );
-        })}
-      
+        return (
+          <div>
+            <h1
+              onClick={() => {
+                navigate(`/pokemon/${item.id}`);
+              }}
+            >
+              {" "}
+              {item.name.english}
+            </h1>
+          </div>
+        );
+      })}
     </>
   );
 }
