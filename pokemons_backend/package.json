@@ -1,11 +1,13 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.0",
     "node-json-db": "^1.5.0",
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "devstart": "nodemon server.js"
   },
   "name": "backend-project",
   "version": "1.0.0",

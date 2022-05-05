@@ -18,6 +18,24 @@ const getOnePokemon = (req, res, next) => {
     }
 }
 
+
+const getInfoOnePokemon = (req, res, next) => {
+    try {
+    const { id } = req.params
+    console.log("REQUEST", req.params)
+    console.log(typeof id)
+    const pokemon = db.find(pokemon =>  pokemon.id === id)
+    res.json({
+        pokemon
+    })
+    } catch (error) {
+        res.status(500).json({
+            message: "Something went wrong"
+        })
+    }
+}
+
+
 const getAllPokemons = async (req, res) => {
     try {
         res.json(
@@ -31,6 +49,7 @@ const getAllPokemons = async (req, res) => {
 }
 
 module.exports = {
+    getInfoOnePokemon,
     getOnePokemon,
     getAllPokemons
 }
