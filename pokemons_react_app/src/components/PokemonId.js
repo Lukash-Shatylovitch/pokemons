@@ -23,7 +23,7 @@ export default function PokemonId(props) {
   return (
     <>
       {pokemon ? (
-        <div>
+        <div className="table">
           <p>Name : {pokemon.name.english}</p>
           <p>Attack : {pokemon.base.Attack}</p>
           <p>Defense : {pokemon.base.Defense}</p>

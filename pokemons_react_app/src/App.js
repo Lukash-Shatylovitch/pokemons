@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PokemonId from "./components/PokemonId";
 import PokemonIdInfo from "./components/PokemonIdInfo";
-import "./App.css";
 import Pokemons from "./components/Pokemons";
 
 function App() {

@@ -26,8 +26,8 @@ export default function Pokemons(props) {
         console.log(item);
 
         return (
-          <div>
-            <h1
+          <div key={index}> 
+            <h1 classname= 
               onClick={() => {
                 navigate(`/pokemon/${item.id}`);
               }}
